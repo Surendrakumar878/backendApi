@@ -7,12 +7,13 @@ const {notesRouter}=require("./routes/Notes.route");
 const app=express()
 app.use(cors())
 app.use(express.json())
-app.use("/user",userRouter)
-app.use(authenticate)
-app.use("/note",notesRouter)
 app.get("/",(req,res)=>{
     res.send("home page")
 })
+app.use("/user",userRouter)
+app.use(authenticate)
+app.use("/note",notesRouter)
+
 
 
 app.listen(8000, async()=>{
