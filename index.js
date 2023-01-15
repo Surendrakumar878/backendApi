@@ -5,6 +5,7 @@ const {authenticate}=require("./middlwares/authenticate.middleware")
 const {userRouter}=require("./routes/User.route");
 const {notesRouter}=require("./routes/Notes.route");
 const app=express()
+require("dotenv").config()
 app.use(cors())
 app.use(express.json())
 app.get("/",(req,res)=>{
@@ -16,7 +17,8 @@ app.use("/note",notesRouter)
 
 
 
-app.listen(8000, async()=>{
+app.listen(process.env.PORT|| 8000
+    , async()=>{
 
     await connection
     console.log("8000")
